@@ -5,7 +5,7 @@ const style = {
         border: 'solid 1px #eee',
         boxShadow: '0 5px 5px rgb(0, 0, 0, 0.1)',
         width: '30%',
-        padding:'10 px 15px',
+        padding:'15 px 20px',
         borderRadius:'5px ',
     },
     img:{

@@ -1,5 +1,4 @@
 import { Component } from "react";
-
 const styles = {
     button:{
     backgroundColor: "#0A283E",
