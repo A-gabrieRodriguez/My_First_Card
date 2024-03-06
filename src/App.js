@@ -1,6 +1,8 @@
 import { Component } from "react";
 import Products from "./components/Products";
 import Layout from "./components/Layout";
+import Title from "./components/Title"
+import Navbar from "./components/Navbar"
 
 class App extends Component {
   //creando estado inicial
@@ -56,7 +58,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Navbar/>
         <Layout>
+          <Title/>
           <Products
             addProduct={() => console.log("Don't do nothing")}
             products={this.state.products}
