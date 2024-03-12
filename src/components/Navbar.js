@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Logo from "./Logo"
+import Cart from "./Cart" 
+
 const styles={
     navbar:{
         display:"flex",
@@ -17,8 +19,8 @@ class Navbar extends Component {
     render() {
         return (
             <nav style={styles.navbar}>
-                <Logo/>
-                <p>Products</p>
+                <Logo/> 
+                <Cart/>
             </nav>
         );
     }
