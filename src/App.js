@@ -71,6 +71,27 @@ class App extends Component {
   addProduct=(product)=>{
     //console.log(product)
     
+    //consultando carro de compras si ya se agrego el producto
+    const {cart} = this.state
+    
+    if(cart.find(x=> x.name=== product.name)){
+      //ejecutando codigo si en el caso que SI ya exista un producto
+      //dentro del arreglo de cart
+      
+      //Creando un carro nuevo en base al carro existente (cart)
+      // y el nuevo carro llamado x en la propiedad mount+1
+      const newCart = cart.map(x=> x.name === product.name 
+        ?({
+          ...x,
+          mount: x.mount +1
+        })
+        /*si en caso no es el mismo producto solo devolvemos el producto
+        es decir no le sumamos 1 (mount+1)
+        */
+      :x)
+      return this.setState({cart: newCart})
+    }
+
     //retornamos setState
     //pero al retornar agarramos los valores que viene de product
     //hacemos una copia y agregamos(concat) la propiedad mount
