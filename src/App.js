@@ -64,14 +64,25 @@ class App extends Component {
       }
       */
 
-    ]
+    ],
   };
 
   //creando funcion para agregar al cart
   addProduct=(product)=>{
-    console.log(product)
+    //console.log(product)
+    
+    //retornamos setState
+    //pero al retornar agarramos los valores que viene de product
+    //hacemos una copia y agregamos(concat) la propiedad mount
+    return this.setState({
+      cart:this.state.cart.concat({
+        ...product,
+        mount:1,
+      })
+    })
   }
   render() {
+    console.log(this.state.cart)
     return (
       <div>
         <Navbar/>
