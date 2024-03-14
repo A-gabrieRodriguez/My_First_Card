@@ -54,7 +54,23 @@ class App extends Component {
         img: "https://imgs.search.brave.com/hULVle4Qm9XxYvLX9zZSL3fKiVNfdYhcdW1WRJTpai0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzgzLzM3LzY0/LzM2MF9GXzgzMzc2/NDk5X2ZrN3BKczJY/Zm03NWszNThQa21R/eUtSbTU4SzJCTGFn/LmpwZw",
       },
     ],
+    cart:[
+      /*
+      {
+        name: "Tomato",
+        price: 90,
+        img: "https://imgs.search.brave.com/WgqjiG6yCesDstSMsCwIMiW78br-o5dydJdvI2d1BWU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FkL1RvbWF0b18n/U2NvcnBpbywnX1Nv/bGFudW1fbHljb3Bl/cnNpY3VtLmpwZw",
+        mount:0,
+      }
+      */
+
+    ]
   };
+
+  //creando funcion para agregar al cart
+  addProduct=(product)=>{
+    console.log(product)
+  }
   render() {
     return (
       <div>
@@ -62,7 +78,7 @@ class App extends Component {
         <Layout>
           <Title/>
           <Products
-            addProduct={() => console.log("Don't do nothing")}
+            addProduct={this.addProduct}
             products={this.state.products}
           />
           <p>hola mundo</p>
