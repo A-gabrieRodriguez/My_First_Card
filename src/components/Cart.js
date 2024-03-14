@@ -23,7 +23,8 @@ class Cart extends Component {
         return(
             <div>
                 <span style={styles.bubble}>
-                    <BubbleAlert/>
+                    {/*pasando un valor de 4*/}
+                    <BubbleAlert value={4}/>
                 </span>
                 <button style={styles.cart}>
                     My cart

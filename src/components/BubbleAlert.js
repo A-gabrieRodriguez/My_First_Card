@@ -12,10 +12,18 @@ const styles ={
 }
 
 class BubbleAlert extends Component{
+    //creando una funcion que resive un numero
+    getNumber(n){
+        if(!n){ return ""}
+        return n >9 ? "9+":n
+    }
     render(){
+        //un valor que va a resivir value que viene de props
+        const {value} = this.props
         return(
             <span style={styles.bubbleAlert}>
-                8
+                {/*Llamando a la funcion getNumber(value*/}
+                {this.getNumber(value)}
             </span>
         )
     }
