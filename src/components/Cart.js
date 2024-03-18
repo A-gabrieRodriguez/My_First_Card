@@ -1,5 +1,6 @@
 import { Component } from "react";
 import BubbleAlert from "./BubbleAlert"
+import DetailCart from "./DetailCart"
 const styles ={
     cart:{
         backgroundColor:"#359A2C",
@@ -37,6 +38,9 @@ class Cart extends Component {
                 <button style={styles.cart}>
                     My cart
                 </button>
+                
+                {/* pasando carro de compras */}
+                <DetailCart cart={cart}/>
             </div>
         )
     }
