@@ -103,10 +103,10 @@ class App extends Component {
     })
   }
   render() {
-    console.log(this.state.cart)
     return (
       <div>
-        <Navbar/>
+        {/*pasando el arroglo cart a al componente Navbar*/}
+        <Navbar cart={this.state.cart} />
         <Layout>
           <Title/>
           <Products

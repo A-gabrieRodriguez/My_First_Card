@@ -20,11 +20,19 @@ const styles ={
 
 class Cart extends Component {
     render(){
+        const {cart} = this.props
+        /*sumando productos del arrelo con propiedad reduce*/
+        const mount = cart.reduce((acc,el)=> acc + el.mount, 0)
         return(
             <div>
                 <span style={styles.bubble}>
-                    {/*pasando un valor de 4*/}
-                    <BubbleAlert value={4}/>
+                
+                    {/*pasando un valor de mount(cantidad) */}
+                    {/*RENDERIZADO CONDICIONAL*/}    
+                {mount !==0 
+                    ? <BubbleAlert value={mount} />
+                    : null
+                }
                 </span>
                 <button style={styles.cart}>
                     My cart

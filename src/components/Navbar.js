@@ -17,10 +17,15 @@ const styles={
 
 class Navbar extends Component {
     render() {
+        //pasando el arreglo cart que viene de prop
+        //que viene mandado por app.js en el componente app.js
+        const {cart} = this.props
         return (
             <nav style={styles.navbar}>
                 <Logo/> 
-                <Cart/>
+
+                {/*pasando e arreglo cart al componente cart*/}
+                <Cart cart={cart}/>
             </nav>
         );
     }
