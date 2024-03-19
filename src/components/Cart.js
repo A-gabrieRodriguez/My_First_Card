@@ -22,9 +22,8 @@ const styles ={
 class Cart extends Component {
     render(){        
         //Agarrando valores que vienen de Navbar.js
-        const {cart} = this.props
-        const {cart_visible} = this.props
-        const {showCart} = this.props
+        const {cart,cart_visible,showCart} = this.props
+
         
         /*sumando productos del arrelo con propiedad reduce*/
         const mount = cart.reduce((acc,el)=> acc + el.mount, 0)
