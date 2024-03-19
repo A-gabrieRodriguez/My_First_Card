@@ -107,10 +107,15 @@ class App extends Component {
 
   //metodo para mostrar o ocultar carro(cart)
   showCart = () => {
+
+    //validando que si no hay producto en el carro no se mostrara
+    if(!this.state.cart.length){
+      return
+    }
+
     //el valor cart_visible toma el valor contarrio al estado
     //en el que se encuentra es decir this.state.cart_visible
     this.setState({ cart_visible: !this.state.cart_visible });
-    console.log(this.state.cart_visible)
   };
 
   render() {
