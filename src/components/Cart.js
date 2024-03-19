@@ -38,12 +38,10 @@ class Cart extends Component {
                     : null
                 }
                 </span>
-                <button style={styles.cart}>
+                <button onClick={showCart} style={styles.cart}>
                     My cart
                 </button>
-                
-                {/* pasando carro de compras */}
-                <DetailCart cart={cart}/>
+                {cart_visible ? <DetailCart cart={cart}/> : null }
             </div>
         )
     }

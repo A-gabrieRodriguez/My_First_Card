@@ -110,11 +110,12 @@ class App extends Component {
     //el valor cart_visible toma el valor contarrio al estado
     //en el que se encuentra es decir this.state.cart_visible
     this.setState({ cart_visible: !this.state.cart_visible });
+    console.log(this.state.cart_visible)
   };
 
   render() {
     //volvemos a llamar al metodo para poder usarlo en el componente y pasarlo
-    const { cart_visible } = this.props;
+    const { cart_visible } = this.state;
     return (
       <div>
         {/*Pasando el arreglo cart a al componente Navbar, tambien
