@@ -1,8 +1,8 @@
 import { Component } from "react";
 import Products from "./components/Products";
 import Layout from "./components/Layout";
-import Title from "./components/Title"
-import Navbar from "./components/Navbar"
+import Title from "./components/Title";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   //creando estado inicial
@@ -54,7 +54,7 @@ class App extends Component {
         img: "https://imgs.search.brave.com/hULVle4Qm9XxYvLX9zZSL3fKiVNfdYhcdW1WRJTpai0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzgzLzM3LzY0/LzM2MF9GXzgzMzc2/NDk5X2ZrN3BKczJY/Zm03NWszNThQa21R/eUtSbTU4SzJCTGFn/LmpwZw",
       },
     ],
-    cart:[
+    cart: [
       /*
       {
         name: "Tomato",
@@ -63,52 +63,72 @@ class App extends Component {
         mount:0,
       }
       */
-
     ],
+    cart_visible: false,
   };
 
   //creando funcion para agregar al cart
-  addProduct=(product)=>{
+  addProduct = (product) => {
     //console.log(product)
-    
+
     //consultando carro de compras si ya se agrego el producto
-    const {cart} = this.state
-    
-    if(cart.find(x=> x.name=== product.name)){
+    const { cart } = this.state;
+
+    if (cart.find((x) => x.name === product.name)) {
       //ejecutando codigo si en el caso que SI ya exista un producto
       //dentro del arreglo de cart
-      
+
       //Creando un carro nuevo en base al carro existente (cart)
       // y el nuevo carro llamado x en la propiedad mount+1
-      const newCart = cart.map(x=> x.name === product.name 
-        ?({
-          ...x,
-          mount: x.mount +1
-        })
-        /*si en caso no es el mismo producto solo devolvemos el producto
+      const newCart = cart.map((x) =>
+        x.name === product.name
+          ? {
+              ...x,
+              mount: x.mount + 1,
+            }
+          : /*si en caso no es el mismo producto solo devolvemos el producto
         es decir no le sumamos 1 (mount+1)
         */
-      :x)
-      return this.setState({cart: newCart})
+            x
+      );
+      return this.setState({ cart: newCart });
     }
 
     //retornamos setState
     //pero al retornar agarramos los valores que viene de product
     //hacemos una copia y agregamos(concat) la propiedad mount
     return this.setState({
-      cart:this.state.cart.concat({
+      cart: this.state.cart.concat({
         ...product,
-        mount:1,
-      })
-    })
-  }
+        mount: 1,
+      }),
+    });
+  };
+
+  //metodo para mostrar o ocultar carro(cart)
+  showCart = () => {
+    //el valor cart_visible toma el valor contarrio al estado
+    //en el que se encuentra es decir this.state.cart_visible
+    this.setState({ cart_visible: !this.state.cart_visible });
+  };
+
   render() {
+    //volvemos a llamar al metodo para poder usarlo en el componente y pasarlo
+    const { cart_visible } = this.props;
     return (
       <div>
-        {/*pasando el arroglo cart a al componente Navbar*/}
-        <Navbar cart={this.state.cart} />
+        {/*Pasando el arreglo cart a al componente Navbar, tambien
+           pasando valores de boton de carro(cart),cart_visible={cart_visible} la varaible (true/false)
+           y tabien pasando la funcion showCart={this.showCart}               
+        */}
+        <Navbar
+          cart={this.state.cart}
+          cart_visible={cart_visible}
+          showCart={this.showCart}
+        />
+
         <Layout>
-          <Title/>
+          <Title />
           <Products
             addProduct={this.addProduct}
             products={this.state.products}
